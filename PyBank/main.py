@@ -14,6 +14,14 @@ great_decrease = data_frame['Profit/Losses'].min()
 increase_month = data_frame[data_frame['Profit/Losses'] == great_increase]
 decrease_month = data_frame[data_frame['Profit/Losses'] == great_decrease]
 
+delta = []
+profit_list = data_frame['Profit/Losses'].tolist()
+for counter in range(1,len(data_frame['Profit/Losses'])):
+	delta.append(profit_list[counter] - profit_list[counter - 1])
+
+print(sum(delta)/ len(delta))
+
+
 print('Financial Analysis')
 print('------------------')
 print(f'Total Months: {total_months}')
